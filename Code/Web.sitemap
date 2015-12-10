@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Default.aspx" title="Home"  description="Home">
+      <siteMapNode url="~/Services.aspx" title="Services" description="Services">
+        <siteMapNode url="~/Accounting.aspx" title="Accounting" description="Accounting" />
+        <siteMapNode url="~/Registration.aspx" title="Registrations" description="Registrations" />
+        <siteMapNode url="~/Payroll.aspx" title="Payroll" description="Payroll" />
+        <siteMapNode url="~/Consultation.aspx" title="Consultation" description="Consultation" />
+        <siteMapNode url="~/Business.aspx" title="Business Planning and Molding" description="Business Planning and Molding" />
+      </siteMapNode>
+      <siteMapNode url="http://google.co.in" title="Partners" description="Partners">
+        <siteMapNode url="http://orkut.com" title="People's Co-operative India pvt ltd" description="People's Co-operative India pvt ltd" />
+        <siteMapNode url="http://yahoo.com" title="Russel Bradford" description="Russel Bradford" />
+        <siteMapNode url="http://facebook.com" title="Carribean Development Bank" description="Carribean Development Bank" />
+        <siteMapNode url="http://twitter.com" title="Turk Exim Bank" description="Turk Exim Bank" />
+      </siteMapNode>
+      <siteMapNode url="http://google.com" title="Company" description="Company">
+        <siteMapNode url="~/AboutUs.aspx" title="About Us" description="About Us" />
+        <siteMapNode url="~/OurTeam1.aspx" title="Our Team" description="Advisory Board" />
+        <siteMapNode url="~/OurTeam2.aspx" title="Advisory Board" description="Advisory Board" />
+      </siteMapNode>
+      <siteMapNode url="~/ContactUs.aspx" title="Contact Us" description="Contact Us" />
+    </siteMapNode>
+</siteMap>

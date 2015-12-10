@@ -1,0 +1,175 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageLogin.master.cs" Inherits="MasterPageLogin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Consultancy House</title>
+    <script type="text/javascript" src="JavaScript/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript">
+        function mainmenu() {
+            $(" #nav ul ").css({ display: "none" }); // Opera Fix
+
+            $(" #nav li").hover(function () {
+                $(this).find('ul:first').css({ visibility: "visible", display: "none" }).show(400);
+            }
+            , function () {
+                $(this).find('ul:first').css({ visibility: "hidden" });
+            });
+        }
+
+        $(document).ready(function () {
+            mainmenu();
+        });
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+
+    <script>        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } } (document, 'script', 'twitter-wjs');</script>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1"></script>
+       <script type="text/javascript">
+           $(window).load(function () { //start after HTML, images have loaded
+
+               var InfiniteRotator =
+    {
+        init: function () {
+            //initial fade-in time (in milliseconds)
+            var initialFadeIn = 1000;
+
+            //interval between items (in milliseconds)
+            var itemInterval = 5000;
+
+            //cross-fade time (in milliseconds)
+            var fadeTime = 2500;
+
+            //count number of items
+            var numberOfItems = $('.rotating-item').length;
+
+            //set current item
+            var currentItem = 0;
+
+            //show first item
+            $('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+
+            //loop through the items
+            var infiniteLoop = setInterval(function () {
+                $('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+
+                if (currentItem == numberOfItems - 1) {
+                    currentItem = 0;
+                } else {
+                    currentItem++;
+                }
+                $('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+
+            }, itemInterval);
+        }
+    };
+
+               InfiniteRotator.init();
+
+           });
+       </script>
+      
+
+    <link rel="Stylesheet" type="text/css" href="~/Styles/StyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="wrapper">
+     <span style="margin-left:20px">
+     <img src="Images/twitter.png" runat="server" height="25" width="25" alt="Twitter Feeds" />
+     <img src="Images/sitemapicon.png" runat="server" height="20" width="20" alt="Sitemap" />
+     <img src="Images/message.png" runat="server" height="20" width="20" alt="Contact Us" />
+     </span>
+     <div id="lang" style="margin-right:30px;float:right">
+     <img src="Images/english.png" runat="server" height="12" width="22" alt="English" />
+     <img src="Images/gujarati.png" runat="server" height="12" width="22" alt="Translate to Gujarati" />
+     </div>
+     <br />
+     <div id="logo">
+     <img src="Images/logo.jpg" width="300" height="100" class="picture" alt="logo" />
+     <a href="#">
+     <span class="linkposition">Links</span>
+     </a>
+     <a href="#">
+     <span class="linkposition">Privacy Policy</span>
+     </a>
+     <b><asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click" CssClass="linkposition"></asp:LinkButton>
+     <asp:Label ID="lblLogout" runat="server" ForeColor="Purple" Height="16px" 
+             Width="200px" CssClass="linkposition"></asp:Label></b>
+    
+     </div>
+     <div id="rotating-item-wrapper">
+       <img src="Images/banner.png" alt="banner1" class="rotating-item" width="1080" height="200" />
+       <img src="Images/banner1.jpg" alt="banner2" class="rotating-item" width="1080" height="200" />
+       </div>
+
+       <div id="navigation">
+            <ul id="nav">
+                <li><a href="Default.aspx">HOME</a></li>
+                <li><a href="Services.aspx">SERVICES</a>
+                </li>
+                <li><a href="Partners.aspx">PARTNERS</a></li>
+                <li><a href="#" runat="server" id="company">COMPANY</a>
+                    <ul>
+                        <li><a href="AboutUs.aspx">About Us</a></li>
+                        <li><a href="OurTeam.aspx">Our Team</a></li>
+                    
+                    </ul>
+                </li>
+                <li><a href="ContactUs.aspx" runat="server" id="contactus">CONTACT US</a></li>
+            </ul>
+
+           
+       </div>
+
+       <div id="content_area">
+          
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           </asp:ContentPlaceHolder>
+       </div>
+
+       <div id="sidebar">
+       <div id="Three-Dee">
+       <a href="Sitemap.aspx" runat="server" style="color:#5C062D">SiteMap</a>
+       </div>      
+          
+       </div>
+       <div id="news" align="center">
+       <asp:Label ID="Label1" runat="server" Height="40px" CssClass="quicklaunchheader">Follow us</asp:Label><br />
+       
+       <asp:Label ID="Label2" runat="server" Height="25px" CssClass="quicklaunch">Google+</asp:Label><br />
+       <div style="line-height:2em" class="g-plusone" data-size="standard" data-annotation="none" data-href="https://plus.google.com/106055208340871742717/posts/gYHpRnw2yWP"></div>
+       <br />
+
+       <asp:Label ID="Label3" runat="server" Height="25px" CssClass="quicklaunch">Facebook</asp:Label><br />
+       <div class="fb-like" data-href="https://www.facebook.com/champ20ns.believe?ref=br_tf" data-width="25" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+       <br />
+
+       <asp:Label ID="Label4" runat="server" Height="25px" CssClass="quicklaunch">Twitter</asp:Label><br />
+       <a href="https://twitter.com/consulhouse2015" class="twitter-follow-button" data-show-count="false">Follow @consulhouse2015</a><br />
+
+       <asp:Label ID="Label5" runat="server" Height="25px" CssClass="quicklaunchlast">YouTube</asp:Label><br />
+       <div class="g-ytsubscribe" data-channelid="UCUdz5sSnxHtGaH7-rvVcYtA" data-layout="default" data-count="hidden"></div><br />
+
+       </div>
+       
+      
+       <div id="footer">
+        <p>© 2015 Consultancy House. All Rights reserved</p>
+       </div>
+    </div>
+    </form>
+</body>
+</html>

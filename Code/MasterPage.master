@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Consultancy House</title>
+    <script type="text/javascript" src="JavaScript/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript">
+    function mainmenu(){
+        $(" #nav ul ").css({ display: "none" }); // Opera Fix
+
+        $(" #nav li").hover(function () {
+            $(this).find('ul:first').css({ visibility: "visible", display: "none" }).show(400);
+        }
+            , function () {
+                $(this).find('ul:first').css({ visibility: "hidden" });
+            });
+    }
+
+    $(document).ready(function () {
+        mainmenu();
+    });
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1"></script>
+       <script type="text/javascript">
+           $(window).load(function () { //start after HTML, images have loaded
+
+               var InfiniteRotator =
+    {
+        init: function () {
+            //initial fade-in time (in milliseconds)
+            var initialFadeIn = 1000;
+
+            //interval between items (in milliseconds)
+            var itemInterval = 5000;
+
+            //cross-fade time (in milliseconds)
+            var fadeTime = 2500;
+
+            //count number of items
+            var numberOfItems = $('.rotating-item').length;
+
+            //set current item
+            var currentItem = 0;
+
+            //show first item
+            $('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+
+            //loop through the items
+            var infiniteLoop = setInterval(function () {
+                $('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+
+                if (currentItem == numberOfItems - 1) {
+                    currentItem = 0;
+                } else {
+                    currentItem++;
+                }
+                $('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+
+            }, itemInterval);
+        }
+    };
+
+               InfiniteRotator.init();
+
+           });
+       </script>
+      
+
+    <link rel="Stylesheet" type="text/css" href="~/Styles/StyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="wrapper">
+     <span style="margin-left:20px">
+     <asp:ImageButton ID="twitter" runat="server" ImageUrl="Images/twitter.png" 
+             Width="25px" Height="22px" CssClass="iconposition" onclick="twitter_Click" />&nbsp;
+     <asp:ImageButton ID="site" runat="server" ImageUrl="Images/sitemapicon.jpg" 
+             Width="17px" Height="20px" onclick="site_Click" />&nbsp;
+     <asp:ImageButton ID="message" runat="server" ImageUrl="Images/message.png" 
+             Width="17px" Height="20px" onclick="message_Click" />
+     </span>
+     <div id="language" style="float:right;margin-right:30px">
+        
+        
+        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="Images/english.png" 
+             CausesValidation="false" Width="20px" Height="10px" 
+             onclick="ImageButton1_Click"  />&nbsp;
+        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="Images/gujarati.png" 
+             CausesValidation="false" Width="20px" Height="10px" 
+             onclick="ImageButton2_Click" />
+     </div>
+    
+     <br />
+     <div id="logo">
+     <img src="Images/logo.jpg" width="300" height="100" class="picture" alt="logo"  />
+                  
+     <a href="#">
+     <span class="linkposition" runat="server" id="links"></span>
+     </a>
+     <a href="#">
+     <span class="linkposition" runat="server" id="privacypolicy"></span>
+     </a>
+     <asp:LinkButton ID="Button1" runat="server" PostBackUrl="~/ClientLogin.aspx" CssClass="linkposition" Font-Underline="false" />
+     <b><asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click" CssClass="linkposition"></asp:LinkButton>
+     
+    <asp:Label ID="lblLogin" runat="server" ForeColor="Purple" Height="16px" Width="200px" CssClass="linkposition"></asp:Label></b>
+     
+     </div>
+     <div id="rotating-item-wrapper">
+       <img src="Images/banner.png" alt="banner1" class="rotating-item" width="1080" height="200" />
+       <img src="Images/banner1.jpg" alt="banner2" class="rotating-item" width="1080" height="200" />
+       <img src="Images/banner2.jpg" alt="banner2" class="rotating-item" width="1080" height="200" />
+                </div>
+
+       <div id="navigation">
+            <ul id="nav">
+                <li><a href="Default.aspx" runat="server" id="home"></a></li>
+                <li><a href="Services.aspx" runat="server" id="services"></a></li>
+                <li><a href="Partners.aspx" runat="server" id="partners"></a></li>
+                <li><a href="#" runat="server" id="company"></a>
+                    <ul>
+                        <li><a href="AboutUs.aspx" runat="server" id="aboutus"></a></li>
+                        <li><a href="OurTeam.aspx" runat="server" id="ourteam"></a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="ContactUs.aspx" runat="server" id="contactus"></a></li>
+            </ul>
+             <div id="login" align=right>
+            </div>
+       </div>
+
+       <div id="content_area">
+           
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           </asp:ContentPlaceHolder>
+       </div>
+
+       <div id="sidebar">
+       <div id="Three-Dee">
+       <a href="Sitemap.aspx" runat="server" id="sitemaplink" style="color:#5C062D"></a>
+       </div>      
+           <span style="font-size:smaller">
+           
+           <br />
+           </span>       
+       </div>
+       <div id="news" align="center">
+           <span class="newsheader" id="news1" runat="server"></span>
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+             
+               
+           </asp:ContentPlaceHolder>
+       </div>
+       <div id="footer">
+        <p>© 2015 Consultancy House. All Rights reserved</p>
+       </div>
+    </div>
+    </form>
+</body>
+</html>
